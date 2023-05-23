@@ -1,0 +1,21 @@
+Resources:
+  ImageClassifierFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: https://github.com/LupercalCAT/image-classifier-api/tree/main
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Policies: # assuming your function needs these permissions
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+      Events:
+        GetImage:
+          Type: Api
+          Properties:
+            Path: /image-classifier
+            Method: get
+        PostImage:
+          Type: Api
+          Properties:
+            Path: /image-classifier
+            Method: post
