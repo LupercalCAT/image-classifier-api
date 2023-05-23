@@ -1,1 +1,1 @@
-# image-classifier-upload
+# image-classifier-api
